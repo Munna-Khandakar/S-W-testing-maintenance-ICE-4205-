@@ -7,7 +7,8 @@
     <meta name="author" content="Isna Nur Azis">
     <meta name="keyword" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Miminium</title>
+    <link rel="shortcut icon" href="{{asset('favicon.png')}}" type="image/x-icon">
+    <title>foodgarage | Your Online Restaurant</title>
 
     <!-- start: Css -->
     <link rel="stylesheet" type="text/css" href="{{asset('asset/css/bootstrap.min.css')}}">
@@ -17,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('asset/css/plugins/simple-line-icons.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('asset/css/plugins/animate.min.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('asset/css/plugins/fullcalendar.min.css')}}" />
-    <link href="asset/css/style.css" rel="stylesheet">
+    <link href="{{asset('asset/css/style.css')}}" rel="stylesheet">
     <!-- end: Css -->
 
     <link rel="shortcut icon" href="{{asset('asset/img/logomi.png')}}">
@@ -38,7 +39,7 @@
                     <span class="middle"></span>
                     <span class="bottom"></span>
                 </div>
-                <a href="index.html" class="navbar-brand">
+                <a href="{{route('dashboard')}}" class="navbar-brand">
                     <b>foodgarage</b>
                 </a>
 
@@ -56,11 +57,11 @@
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right user-nav">
-                    <li class="user-name"><span>Village Restaurent</span></li>
+                    <li class="user-name"><span>{{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</span></li>
                     <li class="dropdown avatar-dropdown">
-                        <img src="asset/img/restaurant.jpg" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" />
+                        <img src="{{asset('asset/img/restaurant.jpg')}}" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" />
                         <ul class="dropdown-menu user-dropdown">
-                            <li><a href="#"><span class="fa fa-user-plus"></span> Add Member</a></li>
+                            <li><a href="{{ route('seller_register') }}"><span class="fa fa-user-plus"></span> Add Member</a></li>
                             <li><a href='#' onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();"><span class="fa fa-sign-out"></span> Log out</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -86,20 +87,23 @@
                         <div class="left-bg"></div>
                     </li>
                     <li class="time">
-                        <h1 class="animated fadeInLeft">21:00</h1>
-                        <p class="animated fadeInRight">Sat,October 1st 2029</p>
+                        <h1 class="animated fadeInLeft"></h1>
+                        <p class="animated fadeInRight"></p>
                     </li>
-                 
+
                     <li class="active ripple">
-                        <a href="calendar.html"><span class="fa fa-home"></span>Dashboard</a>
+                        <a href="{{ route('dashboard') }}"><span class="fa fa-home"></span>Dashboard</a>
                     </li>
-                       <li class="ripple">
-                        <a href="calendar.html"><span class="fa fa-area-chart"></span>Sell</a>
-                     </li>    
                     <li class="ripple">
-                        <a href="calendar.html"><span class="fa fa-users"></span>Members</a>
-                    </li>                               
-               
+                        <a href="{{route('products')}}"><span class="fa fa-opencart"></span>Products</a>
+                    </li>
+                    {{-- <li class="ripple">
+                        <a href="{{ route('sell') }}"><span class="fa fa-area-chart"></span>Sell</a>
+                    </li> --}}
+                    <li class="ripple">
+                        <a href="{{route('members')}}"><span class="fa fa-users"></span>Members</a>
+                    </li>
+
                 </ul>
             </div>
         </div>
@@ -120,15 +124,15 @@
             <div class="col-md-12 sub-mimin-mobile-menu-list animated fadeInLeft">
                 <ul class="nav nav-list">
                     <li class="active ripple">
-                          <a href="calendar.html"><span class="fa fa-home"></span>Dashboard</a>
+                         <a href="{{ route('dashboard') }}"><span class="fa fa-home"></span>Dashboard</a>
                     </li>
                     <li class="ripple">
-                       <a href="calendar.html"><span class="fa fa-area-chart"></span>Sell</a>
+                        <a href="{{ route('products') }}"><span class="fa fa-area-chart"></span>Sell</a>
                     </li>
                     <li class="ripple">
-                        <a href="calendar.html"><span class="fa fa-users"></span>Members</a>
+                        <a href="{{ route('members') }}"><span class="fa fa-users"></span>Members</a>
                     </li>
-                   
+
                 </ul>
             </div>
         </div>

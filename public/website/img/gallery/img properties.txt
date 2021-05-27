@@ -1,0 +1,1 @@
+img > edit > resize > pixels > 250 x 250

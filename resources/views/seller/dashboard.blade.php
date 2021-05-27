@@ -11,21 +11,56 @@
                 <div class="responsive-table">
                     <table id="datatables-example" class="table table-striped table-bordered" width="100%" cellspacing="0">
                         <thead>
-                            <tr>
-                                <th>Item Name</th>
+                            <tr>                   
                                 <th>Order Time</th>
+                                <th>Item Name</th>
+                                <th>Quantity</th>
                                 <th>Status</th>
-
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($orders as $order)
                             <tr>
-                                <td>Mutton Biriyani</td>
-                                <td>10.11 am</td>
+                                <td>{{$order->created_at->format('g:i a')}}</td>
+                                <td>{{$order->item_name}}</td>
+                                <td>{{$order->quantity}}</td>   
                                 <td>
+                                    @if($order->seller_action == 'not_seen')
+                                    <button class="btn ripple-infinite btn-round btn-danger">
+                                        <div>
+                                            <span>Not seen</span>
+                                        </div>
+                                    </button>
+                                    <button class="btn ripple-infinite btn-outline btn-primary" onclick="window.location='{{ route('seller_making_action',['id' => $order->id])}}'">
+                                        <div>
+                                            <span>Making</span>
+                                        </div>
+                                    </button>
+                                    <button class="btn ripple-infinite btn-outline btn-success">
+                                        <div>
+                                            <span>Finish</span>
+                                        </div>
+                                    </button>
+                                    @elseif($order->seller_action == 'making')
                                     <button class="btn ripple-infinite btn-outline btn-danger">
                                         <div>
                                             <span>Not seen</span>
+                                        </div>
+                                    </button>
+                                    <button class="btn ripple-infinite btn-round btn-primary">
+                                        <div>
+                                            <span>Making</span>
+                                        </div>
+                                    </button>
+                                    <button class="btn ripple-infinite btn-outline btn-success" onclick="window.location='{{ route('seller_finished_action',['id' => $order->id])}}'">
+                                        <div>
+                                            <span>Finish</span>
+                                        </div>
+                                    </button>
+                                    @elseif($order->seller_action == 'finished')
+                                    <button class="btn ripple-infinite btn-outline btn-danger">
+                                        <div>
+                                            <span>Not seen </span>
                                         </div>
                                     </button>
                                     <button class="btn ripple-infinite btn-outline btn-primary">
@@ -38,94 +73,11 @@
                                             <span>Finish</span>
                                         </div>
                                     </button>
-                                    <button class="btn ripple-infinite btn-outline btn-warning">
-                                        <div>
-                                            <span>Not Possible</span>
-                                        </div>
-                                    </button>
+                                    @endif
                                 </td>
+                            </tr>
+                            @endforeach
 
-                            </tr>
-                            <tr>
-                                <td>Teheri</td>
-                                <td>2.20 pm</td>
-                                <td> 
-                                    <button class="btn ripple-infinite btn-outline btn-danger">
-                                        <div>
-                                            <span>Not seen</span>
-                                        </div>
-                                    </button>
-                                    <button class="btn ripple-infinite btn-outline btn-primary">
-                                        <div>
-                                            <span>Making</span>
-                                        </div>
-                                    </button>
-                                    <button class="btn ripple-infinite btn-outline btn-success">
-                                        <div>
-                                            <span>Finish</span>
-                                        </div>
-                                    </button>
-                                    <button class="btn ripple-infinite btn-round btn-warning">
-                                        <div>
-                                            <span>Not Possible</span>
-                                        </div>
-                                    </button>
-                                </td>
-
-                            </tr>
-                            <tr>
-                                <td>Chicken Polau</td>
-                                <td>12.129 pm</td>
-                                <td>
-                                    <button class="btn ripple-infinite btn-round btn-danger">
-                                        <div>
-                                            <span>Not seen</span>
-                                        </div>
-                                    </button>
-                                    <button class="btn ripple-infinite btn-outline btn-primary">
-                                        <div>
-                                            <span>Making</span>
-                                        </div>
-                                    </button>
-                                    <button class="btn ripple-infinite btn-outline btn-success">
-                                        <div>
-                                            <span>Finish</span>
-                                        </div>
-                                    </button>
-                                    <button class="btn ripple-infinite btn-outline btn-warning">
-                                        <div>
-                                            <span>Not Possible</span>
-                                        </div>
-                                    </button>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>Halim</td>
-                                <td>07.15 pm</td>
-                                <td>
-                                    <button class="btn ripple-infinite btn-outline btn-danger">
-                                        <div>
-                                            <span>Not seen</span>
-                                        </div>
-                                    </button>
-                                    <button class="btn ripple-infinite btn-round btn-primary">
-                                        <div>
-                                            <span>Making</span>
-                                        </div>
-                                    </button>
-                                    <button class="btn ripple-infinite btn-outline btn-success">
-                                        <div>
-                                            <span>Finish</span>
-                                        </div>
-                                    </button>
-                                    <button class="btn ripple-infinite btn-outline btn-warning">
-                                        <div>
-                                            <span>Not Possible</span>
-                                        </div>
-                                    </button>
-                                </td>
-                            </tr>
                         </tbody>
                     </table>
                 </div>
