@@ -55,7 +55,7 @@
                         @if($item->offer)
                         <p class="tm-gallery-price">৳ {{$item->price - $item->offer}} / ৳ <del>{{$item->price}}</del></p>
                         @else
-                        <p class="tm-gallery-price">৳ 110 </p>
+                        <p class="tm-gallery-price">৳ {{$item->price}} </p>
                         @endif
 
                     </figcaption>
@@ -98,7 +98,7 @@
                         @if($item->offer)
                         <p class="tm-gallery-price">৳ {{$item->price - $item->offer}} / ৳ <del>{{$item->price}}</del></p>
                         @else
-                        <p class="tm-gallery-price">৳ 110 </p>
+                        <p class="tm-gallery-price">৳ {{$item->price}} </p>
                         @endif
 
                     </figcaption>
@@ -143,7 +143,7 @@
                         @if($item->offer)
                         <p class="tm-gallery-price">৳ {{$item->price - $item->offer}} / ৳ <del>{{$item->price}}</del></p>
                         @else
-                        <p class="tm-gallery-price">৳ 110 </p>
+                        <p class="tm-gallery-price">৳ {{$item->price}} </p>
                         @endif
 
                     </figcaption>
@@ -187,7 +187,7 @@
                         @if($item->offer)
                         <p class="tm-gallery-price">৳ {{$item->price - $item->offer}} / ৳ <del>{{$item->price}}</del></p>
                         @else
-                        <p class="tm-gallery-price">৳ 110 </p>
+                        <p class="tm-gallery-price">৳ {{$item->price}} </p>
                         @endif
 
                     </figcaption>
@@ -233,7 +233,7 @@
                         @if($item->offer)
                         <p class="tm-gallery-price">৳ {{$item->price - $item->offer}} / ৳ <del>{{$item->price}}</del></p>
                         @else
-                        <p class="tm-gallery-price">৳ 110 </p>
+                        <p class="tm-gallery-price">৳ {{$item->price}} </p>
                         @endif
 
                     </figcaption>
