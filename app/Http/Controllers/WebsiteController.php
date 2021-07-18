@@ -24,7 +24,7 @@ class WebsiteController extends Controller
                         -> where('products.category_id', '=', 2)
                         ->select('products.*','restaurents.name AS restaurant_name','restaurents.id AS restaurant_id')
                         ->get();
-        $dessert_item = Product::join('restaurents','restaurents.id','=','products.restaurant_id')
+        $homemade_item = Product::join('restaurents','restaurents.id','=','products.restaurant_id')
                         -> where('products.category_id', '=', 3)
                         ->select('products.*','restaurents.name AS restaurant_name','restaurents.id AS restaurant_id')
                         ->get();
@@ -39,7 +39,7 @@ class WebsiteController extends Controller
 
         return view('website.home')->with('rice_items',$rice_item)
                                    ->with('snacks_items',$snacks_item)
-                                   ->with('dessert_items',$dessert_item)
+                                   ->with('homemade_items',$homemade_item)
                                    ->with('icecream_items',$icecream_item)
                                    ->with('preorder_items',$preorder_item);
     }

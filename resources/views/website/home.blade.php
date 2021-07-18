@@ -13,7 +13,7 @@
             <ul>
                 <li class="tm-paging-item"><a href="#" class="tm-paging-link active">Rice</a></li>
                 <li class="tm-paging-item"><a href="#" class="tm-paging-link">Snacks</a></li>
-                <li class="tm-paging-item"><a href="#" class="tm-paging-link">Dessert</a></li>
+                <li class="tm-paging-item"><a href="#" class="tm-paging-link">Homemade</a></li>
                 <li class="tm-paging-item"><a href="#" class="tm-paging-link">Icecream</a></li>
                 <li class="tm-paging-item"><a href="#" class="tm-paging-link">Preorder</a></li>
             </ul>
@@ -109,13 +109,13 @@
 
         </div> <!-- gallery page 2 only for snacks items-->
 
-        <!-- gallery page 3 only for dessert items -->
+        <!-- gallery page 3 only for homemade items -->
 
-        <div id="tm-gallery-page-dessert" class="tm-gallery-page hidden">
-            @if($dessert_items->isEmpty())
+        <div id="tm-gallery-page-homemade" class="tm-gallery-page hidden">
+            @if($homemade_items->isEmpty())
             <h3>no item available....</h3>
             @else
-            @foreach($dessert_items as $item)
+            @foreach($homemade_items as $item)
             <article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
                 <figure>
                   @if($item->disable)
@@ -151,7 +151,7 @@
             </article>
             @endforeach
             @endif
-        </div> <!-- gallery page 3 for dessert items -->
+        </div> <!-- gallery page 3 for homemade items -->
 
         <!-- gallery page 3 only for icecream items -->
 
