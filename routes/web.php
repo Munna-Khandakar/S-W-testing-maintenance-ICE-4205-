@@ -3,8 +3,12 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/sendemail', 'App\Http\Controllers\WebsiteController@sendemail')->name('sendemail');
-Route::get('/', 'App\Http\Controllers\WebsiteController@index')->name('index');
+
 Route::post('/confirm/order', 'App\Http\Controllers\WebsiteController@order')->name('order');
+
+Route::get('/', 'App\Http\Controllers\WebsiteController@index')->name('index');
+Route::get('/grocery', 'App\Http\Controllers\WebsiteController@grocery')->name('grocery');
+
 Route::get('/about', function () {
     return view('website.about');
 });
@@ -14,6 +18,7 @@ Route::get('/contact', function () {
 Route::get('/thanks', function () {
     return view('thanks');
 });
+
 
 
 Route::get('/clear-cache', function() {

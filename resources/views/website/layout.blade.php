@@ -38,6 +38,7 @@
                 <nav class="col-md-6 col-12 tm-nav">
                     <ul class="tm-nav-ul">
                         <li class="tm-nav-li"><a href="{{url('/')}}" class="tm-nav-link active">Home</a></li>
+                         <li class="tm-nav-li"><a href="{{url('/grocery')}}" class="tm-nav-link active">Grocery</a></li>
                         <li class="tm-nav-li"><a href="{{url('/about')}}" class="tm-nav-link">About</a></li>
                         <li class="tm-nav-li"><a href="{{url('contact')}}" class="tm-nav-link">Contact</a></li>
                     </ul>

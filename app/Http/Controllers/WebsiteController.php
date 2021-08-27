@@ -44,6 +44,18 @@ class WebsiteController extends Controller
                                    ->with('preorder_items',$preorder_item);
     }
 
+    public function grocery(){
+        $tea_item = Product::join('restaurents','restaurents.id','=','products.restaurant_id')
+                        -> where('products.category_id', '=', 6)
+                        ->select('products.*','restaurents.name AS restaurant_name','restaurents.id AS restaurant_id')
+                        ->get();
+        
+
+        return view('website.grocery')->with('tea_items',$tea_item);
+    }
+
+
+
     public function order(Request $request)
     {   
         #saving the orders to database...
